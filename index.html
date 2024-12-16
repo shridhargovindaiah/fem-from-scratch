@@ -18,6 +18,7 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
     <header class="site-header">
       <div class="wrapper" data-width="wild">
         <div class="site-header__inner">
@@ -27,7 +28,7 @@
             <img width="50" src="assets/hamburger-menu.svg" alt="" srcset="  ">
           </button>
           <nav id="primary-nav" class="primary-navigation">
-            <ul>
+            <ul role="list">
               <li><a href="/index.html">Discover</a></li>
               <li><a href="#">Mushroom Guide</a></li>
               <li><a href="#">FAQ</a></li>
@@ -36,7 +37,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main id="main">
       <section class="hero flow section" data-padding="compact">
         <div class="wrapper">
           <h1 class="hero__title">Discover the world of <span>Mushroom Foraging</span></h1>
