@@ -115,6 +115,7 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
 }
 
 @layer base {
+  /* Read all these values from figma design page */
   :root {
     --clr-white: hsl(0, 0%, 100%);
     --clr-gray-100: hsl(0, 2%, 79%);
@@ -227,7 +228,7 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
 }
 
 @layer layout {
-  .flow > * + * {
+  .flow > * + * { /* styles all adjacent sibling elements in a sequence. this can also written as :not(:first-child) */
     margin-top: var(--flow-spacer, 1em);
   }
 
@@ -291,6 +292,23 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
 }
 
 @layer components {
+  .skip-to-main:not(:focus) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .skip-to-main {
+    position: absolute;
+    padding: 1rem;
+    background: var(--background-accent-main);
+    border-radius: var(--border-radius-2);
+  }
+
   .site-header {
     padding-block: 1rem;
   }
