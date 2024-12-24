@@ -34,6 +34,15 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
 */ 
 @layer reset, base, layout, components, utilities; 
 
+/* 
+ Below is the cross document transition. What it does is, it adds smooth 
+  transition when navigate between the pages. 
+  Learn More about it in MDN website. */
+
+@view-transition {
+  navigation: auto;
+}
+
 @layer reset {
   /* 1. Use a more-intuitive box-sizing model */
   *,
@@ -376,6 +385,10 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
 
     @media (width < 760px) {
       display: none;
+      opacity: 0;
+      transition: opacity 1s, display 1s;
+      transition-behavior: allow-discrete;
+
       position: absolute;
       z-index: 10;
       top: 0;
@@ -409,6 +422,11 @@ Intrinsic layouts means use modern css and provide the browser enough informatio
     [aria-expanded="true"] + .primary-navigation {
       /* Since  we are using +, it has to be direct sibbling otherwise this code fails */
       display: block;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
     }
   }
 
